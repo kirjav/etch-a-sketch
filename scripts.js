@@ -6,6 +6,14 @@ function refreshGrid(){
     generateGrid(numberOfSquares);
 }
 
+function changeBackground(event){
+    event.target.classList.add('hovered');
+    let newOpacityValue = Number(event.target.style.opacity) + 0.1;
+    event.target.style.opacity = newOpacityValue;
+    console.log(event.target.style.opacity);
+    console.log(newOpacityValue);
+}
+
 function generateGrid(numberOfSquares){
     const sketchbook = document.querySelector(".sketchbook");
     sketchbook.innerHTML = '';
@@ -20,6 +28,7 @@ function generateGrid(numberOfSquares){
         while(numberOfColumns > 0){
             const div = document.createElement("div");
             div.classList.add("sketch_box_element");
+            div.addEventListener("mouseover", changeBackground);
             divRow.appendChild(div);
             numberOfColumns -= 1;
         }
