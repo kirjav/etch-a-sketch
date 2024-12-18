@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button onclick="refreshGrid()" id="refreshButton">Refresh grid?</button><br>
+    <button onclick="refreshGrid()" id="refreshButton">Resize grid?</button><br>
     <div class="sketchbook"></div><br>
-    <input type="button" value="black" onclick="setColor(this.value)" class="button black">
-    <input type="button" value="red" onclick="setColor(this.value)" class="button red">
-    <input type="button" value="blue" onclick="setColor(this.value)" class="button blue">
-    <input type="button" value="green" onclick="setColor(this.value)" class="button green">
-<br>
+    <input type="button" value="black" onclick="setColor(this.value)" class="button color black">
+    <input type="button" value="red" onclick="setColor(this.value)" class="button color red">
+    <input type="button" value="blue" onclick="setColor(this.value)" class="button color blue">
+    <input type="button" value="green" onclick="setColor(this.value)" class="button color green">
+    <br>
+    <input type="button" value="Clear" onclick="clearGrid()" class="clear button">
+    <br>
 Opacity Slider:
     <input type="range" min="0" max="100" value="50" class="slider" id="opacityRange">
 

@@ -14,9 +14,7 @@
 .sketch_box_element {
     width:12px;
     height:12px;
-    border: solid;
-    border-color: lightgrey;
-    border-width: 1px;
+    border: None;
     background-color:rgb(255, 255, 255);
 }
 
@@ -42,7 +40,7 @@
     font-weight:bold;
 }
 
-.button {
+.button.color {
     width: 100px;
     height: 100px;
 }
