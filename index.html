@@ -8,10 +8,16 @@
 </head>
 <body>
     <button onclick="refreshGrid()" id="refreshButton">Refresh grid?</button><br>
-    <div class="sketchbook"></div>
+    <div class="sketchbook"></div><br>
+    <input type="button" value="black" onclick="setColor(this.value)" class="button black">
+    <input type="button" value="red" onclick="setColor(this.value)" class="button red">
+    <input type="button" value="blue" onclick="setColor(this.value)" class="button blue">
+    <input type="button" value="green" onclick="setColor(this.value)" class="button green">
+<br>
+Opacity Slider:
+    <input type="range" min="0" max="100" value="50" class="slider" id="opacityRange">
 
 
     <script src="scripts.js"></script>
-
 </body>
 </html>

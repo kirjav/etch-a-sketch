@@ -12,8 +12,8 @@
 }
 
 .sketch_box_element {
-    width:10px;
-    height:10px;
+    width:12px;
+    height:12px;
     border: solid;
     border-color: lightgrey;
     border-width: 1px;
@@ -40,4 +40,42 @@
     border-color: rgb(243, 243, 243);;
     color: rgb(187, 187, 187);
     font-weight:bold;
+}
+
+.button {
+    width: 100px;
+    height: 100px;
+}
+
+.button.black {
+    background-color: rgb(49, 49, 49);
+}
+
+.button.black:hover {
+    background-color: rgb(75, 75, 75);
+}
+
+
+.button.red {
+    background-color: red;
+}
+
+.button.red:hover {
+    background-color: rgb(253, 92, 92);
+}
+
+.button.blue {
+    background-color: rgb(0, 0, 201);
+}
+
+.button.blue:hover {
+    background-color: rgb(67, 67, 255);
+}
+
+.button.green {
+    background-color: green;
+}
+
+.button.green:hover {
+    background-color: rgb(26, 170, 26);
 }

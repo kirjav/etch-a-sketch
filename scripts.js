@@ -1,3 +1,10 @@
+let colorToUse = "black";
+let opacitySetting = 0.5;
+
+document.querySelector('#opacityRange').addEventListener('input',(e)=>{
+    opacitySetting = e.target.value/100;
+  })
+
 function refreshGrid(){
     let numberOfSquares = prompt("Please enter the desired number of squares per side: ");
     while (isNaN(numberOfSquares) || numberOfSquares > 100 || numberOfSquares <= 0) {
@@ -6,12 +13,15 @@ function refreshGrid(){
     generateGrid(numberOfSquares);
 }
 
+function setColor(newColor){
+    colorToUse = newColor;
+}
+
 function changeBackground(event){
     event.target.classList.add('hovered');
-    let newOpacityValue = Number(event.target.style.opacity) + 0.1;
+    let newOpacityValue = Number(event.target.style.opacity) + opacitySetting;
     event.target.style.opacity = newOpacityValue;
-    console.log(event.target.style.opacity);
-    console.log(newOpacityValue);
+    event.target.style.backgroundColor = colorToUse;
 }
 
 function generateGrid(numberOfSquares){
