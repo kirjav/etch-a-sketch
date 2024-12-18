@@ -1,0 +1,14 @@
+
+
+.sketch_box_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.sketch_box_element {
+    width:10px;
+    height:10px;
+    border: solid;
+    border-color: red;
+    background-color:blue;
+}
