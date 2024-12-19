@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button onclick="refreshGrid()" id="refreshButton">Resize grid?</button><br>
-    <div class="sketchbook"></div><br>
-    <div class="tools">
-    <input type="color" id="colorChoice" value="#000000">
-    <input type="button" value="Clear" onclick="clearGrid()" class="clear button">
-    <input type="button" value="Eraser" onclick="enableEraser()" class="eraser button">
-    <br>
-Opacity Slider:
-    <input type="range" min="0" max="100" value="50" class="slider" id="opacityRange">
+    <div class="container">
+        <div class="tools">
+            <div class="toolColumn">
+                <input type="color" id="colorChoice" value="#000000">
+                <input type="button" value="Clear" onclick="clearGrid()" class="clear button">
+                <input type="button" value="Eraser" onclick="enableEraser()" class="eraser button">
+                <br>
+            Opacity Slider:
+                <input type="range" min="0" max="100" value="50" class="slider" id="opacityRange">
+                <button onclick="refreshGrid()" id="refreshButton">Resize grid?</button><br>
+            </div>
+        </div>
+        <div class="sketchbook"></div><br>
     </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>
