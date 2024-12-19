@@ -12,12 +12,13 @@
         <div class="tools">
             <div class="toolColumn">
                 <input type="color" id="colorChoice" value="#000000">
+                <input type="button" value="UNDO" onclick="resetDrawHistory()" class="undo button">
                 <input type="button" value="CLEAR CANVAS" onclick="clearGrid()" class="clear button">
-                <input type="button" value="Eraser" onclick="enableEraser()" class="eraser button">
+                <input type="button" value="Eraser" onclick="toggleEraser()" class="eraser button">
                 Opacity Slider:
                 <input type="range" min="0" max="100" value="50" class="slider" id="opacityRange">
                 Brush Size:
-                <input type="range" min="10" max="100" value="10" class="slider" id="cursorSize">
+                <input type="range" min="10" max="100" value="20" class="slider" id="cursorSize">
                 <button onclick="refreshGrid()" class="refresh button" id="refreshButton">RESIZE CANVAS</button>
                 <div id="scaleReference"></div>
             </div>

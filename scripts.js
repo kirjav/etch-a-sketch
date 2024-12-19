@@ -4,7 +4,8 @@ let currentGridSize = window.innerWidth > 768 ? 70 : 30;
 let mouseDown = false;
 let eraserEnabled = false;
 let pixelScale = 12;
-let cursorSize = 1;
+let cursorSize = 2;
+let drawHistory = []
 
 // Cached DOM Elements
 const sketchbook = document.querySelector(".sketchbook");
@@ -40,6 +41,7 @@ function setCursorSize(value) {
 }
 
 function handleMouseDown(event) {
+    drawHistory = [];
     mouseDown = true;
     draw(event);
 }
@@ -49,6 +51,7 @@ function handleMouseUp() {
 }
 
 function handleTouchStart(event) {
+    drawHistory = [];
     event.preventDefault();
     mouseDown = true;
     draw(event);
@@ -97,7 +100,17 @@ function draw(event) {
         const centerY = rect.top + rect.height / 2;
 
         const distance = Math.sqrt(Math.pow(centerX - clientX, 2) + Math.pow(centerY - clientY, 2));
-        if (distance <= radius) applyBrush(element);
+        if (distance <= radius) {
+            const previousState = {
+                element,
+                previousOpacity: element.style.opacity || 0,
+                previousBackgroundColor: element.style.backgroundColor || ""
+            };
+            applyBrush(element);
+            if (!drawHistory.find(entry => entry.element === element)) {
+                drawHistory.push(previousState);
+            }
+        }
     });
 }
 
@@ -132,6 +145,25 @@ function generateGrid(gridSize) {
 
         sketchbook.appendChild(rowDiv);
     }
+}
+
+function resetDrawHistory() {
+    drawHistory.forEach(entry => {
+        const { element, previousOpacity, previousBackgroundColor } = entry;
+        
+        // Restore the previous opacity and background color
+        console.log(previousOpacity);
+        if (previousOpacity == 0){
+            element.style.opacity = "";
+            element.classList.remove('hovered');
+        } else {
+            element.style.opacity = previousOpacity;
+        }
+        element.style.backgroundColor = previousBackgroundColor;
+    });
+
+    // Clear the drawHistory array after resetting the elements
+    drawHistory = [];
 }
 
 // Initialize
