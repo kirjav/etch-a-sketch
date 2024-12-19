@@ -15,6 +15,7 @@ sketchbook.ontouchstart = (event) => {
     event.preventDefault(); // Prevent default touch behavior (e.g., scrolling)
     mouseDown = true;
 };
+sketchbook.addEventListener('touchmove', draw);
 sketchbook.ontouchend = () => (mouseDown = false)
 
 document.addEventListener('dragstart', (event) => {
@@ -94,6 +95,37 @@ function generateGrid(numberOfSquares) {
             numberOfColumns -= 1;
         }
         numberOfRows -= 1;
+    }
+}
+
+function draw(event) {
+    if (!mouseDown) return;
+
+    // Normalize touch and mouse events
+    let clientX, clientY;
+    if (event.touches) {
+        clientX = event.touches[0].clientX;
+        clientY = event.touches[0].clientY;
+    } else {
+        clientX = event.clientX;
+        clientY = event.clientY;
+    }
+
+    // Determine the element at the touch/mouse location
+    const element = document.elementFromPoint(clientX, clientY);
+    if (element && element.classList.contains('sketch_box_element')) {
+        if(!eraser){
+            colorToUse = document.getElementById("colorChoice").value;
+            element.classList.add('hovered');
+            let newOpacityValue = Number(element.style.opacity) + opacitySetting;
+            element.style.opacity = newOpacityValue;
+            element.style.backgroundColor = colorToUse;
+        } else {
+            element.classList.remove('hovered');
+            let newOpacityValue = "";
+            element.style.opacity = newOpacityValue;
+            element.style.backgroundColor = "";
+        }
     }
 }
 sketchbook.style.cursor = 'crosshair';
