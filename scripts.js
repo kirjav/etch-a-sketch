@@ -4,9 +4,15 @@ var mouseDown = false;
 let eraser = false;
 let sketchbook = document.querySelector(".sketchbook");
 let lastElement = null;
+let pixelScale = 12;
+let cursorSize = 1;
 
 document.querySelector('#opacityRange').addEventListener('input', (e) => {
     opacitySetting = e.target.value / 100;
+})
+
+document.querySelector('#cursorSize').addEventListener('input', (e) => {
+    cursorSize = e.target.value / 10;
 })
 //PC MOUSE EVENTS
 sketchbook.onmousedown = (event) => {
@@ -77,23 +83,34 @@ function draw(event) {
         clientY = event.clientY;
     }
 
-    // Determine the element at the touch/mouse location
-    const element = document.elementFromPoint(clientX, clientY);
-    if (element && element !== lastElement && element.classList.contains('sketch_box_element')) {
-        lastElement = element;
-        if(!eraser){
-            colorToUse = document.getElementById("colorChoice").value;
-            element.classList.add('hovered');
-            let newOpacityValue = Number(element.style.opacity) + opacitySetting;
-            element.style.opacity = newOpacityValue;
-            element.style.backgroundColor = colorToUse;
-        } else {
-            element.classList.remove('hovered');
-            let newOpacityValue = "";
-            element.style.opacity = newOpacityValue;
-            element.style.backgroundColor = "";
+    const radius = (cursorSize * pixelScale)/2; // Radius in pixels
+    const elements = document.querySelectorAll('.sketch_box_element');
+
+    elements.forEach((element) => {
+        const rect = element.getBoundingClientRect(); // Get element's position and size
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        // Calculate distance from the touch/mouse point to the element's center
+        const distance = Math.sqrt(
+            Math.pow(centerX - clientX, 2) + Math.pow(centerY - clientY, 2)
+        );
+
+        if (distance <= radius) {
+            // Apply color or eraser logic
+            if (!eraser) {
+                const colorToUse = document.getElementById("colorChoice").value;
+                element.classList.add('hovered');
+                let newOpacityValue = Number(element.style.opacity) + opacitySetting;
+                element.style.opacity = newOpacityValue;
+                element.style.backgroundColor = colorToUse;
+            } else {
+                element.classList.remove('hovered');
+                element.style.opacity = "";
+                element.style.backgroundColor = "";
+            }
         }
-    }
+    });
 }
 
 function generateGrid(numberOfSquares) {
