@@ -11,9 +11,11 @@ document.querySelector('#opacityRange').addEventListener('input', (e) => {
 sketchbook.onmousedown = () => (mouseDown = true)
 sketchbook.onmouseup = () => (mouseDown = false)
 // MOBILE EVENTS
+
 sketchbook.ontouchstart = (event) => {
     event.preventDefault(); // Prevent default touch behavior (e.g., scrolling)
     mouseDown = true;
+    draw(event);
 };
 sketchbook.addEventListener('touchmove', draw);
 sketchbook.ontouchend = () => (mouseDown = false)
