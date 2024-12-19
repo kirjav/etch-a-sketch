@@ -2,13 +2,20 @@ let opacitySetting = 0.5;
 let currentGridSize = 16;
 var mouseDown = false;
 let eraser = false;
+let sketchbook = document.querySelector(".sketchbook");
 
 document.querySelector('#opacityRange').addEventListener('input', (e) => {
     opacitySetting = e.target.value / 100;
 })
-
-document.body.onmousedown = () => (mouseDown = true)
-document.body.onmouseup = () => (mouseDown = false)
+//MOUSE EVENTS
+sketchbook.onmousedown = () => (mouseDown = true)
+sketchbook.onmouseup = () => (mouseDown = false)
+// MOBILE EVENTS
+sketchbook.ontouchstart = (event) => {
+    event.preventDefault(); // Prevent default touch behavior (e.g., scrolling)
+    mouseDown = true;
+};
+sketchbook.ontouchend = () => (mouseDown = false)
 
 document.addEventListener('dragstart', (event) => {
     event.preventDefault();
@@ -81,12 +88,13 @@ function generateGrid(numberOfSquares) {
         while (numberOfColumns > 0) {
             const div = document.createElement("div");
             div.classList.add("sketch_box_element");
-            div.addEventListener("mouseover", changeBackground);
+            div.addEventListener("pointerover", changeBackground);
+            //div.addEventListener("touchstart", changeBackground);
             divRow.appendChild(div);
             numberOfColumns -= 1;
         }
         numberOfRows -= 1;
     }
 }
-document.querySelector(".sketchbook").style.cursor = 'crosshair';
+sketchbook.style.cursor = 'crosshair';
 generateGrid(70);

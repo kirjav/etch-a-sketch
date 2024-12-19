@@ -14,11 +14,15 @@ body {
 }
 
 .container {
-    display: flex; /* Use flexbox for layout */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of child elements */
+    border: none;
     padding: 10px;
-    gap: 20px; /* Add some spacing between tools and sketchbook */
-    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Space between tools and sketchbook */
+    align-items: flex-start;
+    justify-content: center; /* Center items when wrapped */
 }
+
 .sketchbook {
     border: solid;
     border-color: black;
