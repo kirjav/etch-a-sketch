@@ -1,5 +1,5 @@
 let opacitySetting = 0.5;
-let currentGridSize = 16;
+let currentGridSize = window.innerWidth > 768 ? 70 : 30;
 var mouseDown = false;
 let eraser = false;
 let sketchbook = document.querySelector(".sketchbook");
@@ -91,7 +91,7 @@ function generateGrid(numberOfSquares) {
         while (numberOfColumns > 0) {
             const div = document.createElement("div");
             div.classList.add("sketch_box_element");
-            div.addEventListener("pointerover", changeBackground);
+            div.addEventListener("mouseover", changeBackground);
             //div.addEventListener("touchstart", changeBackground);
             divRow.appendChild(div);
             numberOfColumns -= 1;
@@ -131,4 +131,4 @@ function draw(event) {
     }
 }
 sketchbook.style.cursor = 'crosshair';
-generateGrid(70);
+generateGrid(currentGridSize);
