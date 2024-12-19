@@ -51,16 +51,17 @@ function changeBackground(event) {
             event.target.style.opacity = newOpacityValue;
             event.target.style.backgroundColor = colorToUse;
         } else {
-            event.target.classList.add('hovered');
-            let newOpacityValue = 1.0;
+            event.target.classList.remove('hovered');
+            let newOpacityValue = "";
             event.target.style.opacity = newOpacityValue;
-            event.target.style.backgroundColor = "white";
+            event.target.style.backgroundColor = "";
         }
     }
 }
 
 function generateGrid(numberOfSquares) {
     const sketchbook = document.querySelector(".sketchbook");
+    document.querySelector('#scaleReference').innerHTML = "Scale: " + numberOfSquares + " x " + numberOfSquares;
     sketchbook.innerHTML = '';
     let numberOfRows = numberOfSquares;
     currentGridSize = numberOfSquares;
