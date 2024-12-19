@@ -5,7 +5,7 @@ let eraser = false;
 let sketchbook = document.querySelector(".sketchbook");
 let lastElement = null;
 let pixelScale = 12;
-let cursorSize = 10;
+let cursorSize = 1;
 
 document.querySelector('#opacityRange').addEventListener('input', (e) => {
     opacitySetting = e.target.value / 100;
