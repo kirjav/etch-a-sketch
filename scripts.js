@@ -17,6 +17,9 @@ document.addEventListener('dragstart', (event) => {
 function refreshGrid() {
     let numberOfSquares = prompt("Please enter the desired number of squares per side: ");
     while (isNaN(numberOfSquares) || numberOfSquares > 100 || numberOfSquares <= 0) {
+        if (numberOfSquares == null){
+            return;
+        }
         numberOfSquares = prompt("Invalid Input. Please enter the desired number of squares per side: ");
     }
     generateGrid(numberOfSquares);
@@ -74,4 +77,4 @@ function generateGrid(numberOfSquares) {
     }
 }
 
-generateGrid(16);
+generateGrid(70);
