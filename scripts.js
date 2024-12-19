@@ -36,6 +36,12 @@ function enableEraser(){
     eraser = eraser ? false : true;
     document.querySelector('.eraser.button').classList.toggle("selected_eraser");
 
+    if(eraser){
+        document.querySelector(".sketchbook").style.cursor = "url('/Images/icons8-eraser-50.png'), auto;";
+    } else {
+        document.querySelector(".sketchbook").style.cursor = 'crosshair';
+    }
+
 }
 
 function clearGrid() {
@@ -82,5 +88,5 @@ function generateGrid(numberOfSquares) {
         numberOfRows -= 1;
     }
 }
-
+document.querySelector(".sketchbook").style.cursor = 'crosshair';
 generateGrid(70);
