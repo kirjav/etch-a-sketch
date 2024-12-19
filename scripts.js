@@ -37,7 +37,7 @@ function enableEraser(){
     document.querySelector('.eraser.button').classList.toggle("selected_eraser");
 
     if(eraser){
-        document.querySelector(".sketchbook").style.cursor = "url('Images/icons8-eraser-30.png') 0 20, auto";
+        document.querySelector(".sketchbook").style.cursor = "url('Images/eraserCursor.png') 0 20, auto";
     } else {
         document.querySelector(".sketchbook").style.cursor = 'crosshair';
     }
