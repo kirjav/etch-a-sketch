@@ -25,12 +25,17 @@ function refreshGrid() {
     generateGrid(numberOfSquares);
 }
 document.getElementById("colorChoice").addEventListener('change', (e) => {
-        eraser = false;
+    if(eraser){
+        enableEraser();
+    }
+        
 });
 
 
 function enableEraser(){
     eraser = eraser ? false : true;
+    document.querySelector('.eraser.button').classList.toggle("selected_eraser");
+
 }
 
 function clearGrid() {

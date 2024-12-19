@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="tools">
             <div class="toolColumn">
                 <input type="color" id="colorChoice" value="#000000">
-                <input type="button" value="Clear" onclick="clearGrid()" class="clear button">
+                <input type="button" value="CLEAR CANVAS" onclick="clearGrid()" class="clear button">
                 <input type="button" value="Eraser" onclick="enableEraser()" class="eraser button">
                 <br>
             Opacity Slider:
                 <input type="range" min="0" max="100" value="50" class="slider" id="opacityRange">
-                <button onclick="refreshGrid()" id="refreshButton">Resize grid?</button><br>
+                <button onclick="refreshGrid()" class="refresh button" id="refreshButton">RESIZE CANVAS</button><br>
             </div>
         </div>
         <div class="sketchbook"></div><br>

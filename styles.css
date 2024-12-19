@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     background-color: rgb(194, 194, 194);
+    font-family: "Roboto";
 }
 
 body {
@@ -41,7 +42,8 @@ body {
     background-color: rgb(0, 0, 0);
 }
 
-#refreshButton {
+.button {
+    align-self: center;
     width: 120px;
     height: 60x;
     border: solid;
@@ -51,14 +53,20 @@ body {
     color: rgb(187, 187, 187);
 }
 
-#refreshButton:hover {
+.button:hover {
     background-color: rgb(41, 41, 41);
     border-color: rgb(243, 243, 243);;
     color: rgb(187, 187, 187);
     font-weight:bold;
 }
 
+.selected_eraser {
+    border-color: rgb(243, 243, 243);;
+   }
+   
+
 #colorChoice {
+    align-self: center;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -124,5 +132,4 @@ body {
     background: linear-gradient(to right, white, black);
     height: 5px;
    }
-   
    
