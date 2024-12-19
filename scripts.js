@@ -1,4 +1,3 @@
-let colorToUse = "black";
 let opacitySetting = 0.5;
 let currentGridSize = 16;
 var mouseDown = false;
@@ -22,14 +21,13 @@ function refreshGrid() {
     }
     generateGrid(numberOfSquares);
 }
+document.getElementById("colorChoice").addEventListener('change', (e) => {
+        eraser = false;
+});
 
-function setColor(newColor) {
-    eraser = false;
-    colorToUse = newColor;
-}
 
 function enableEraser(){
-    eraser = true;
+    eraser = eraser ? false : true;
 }
 
 function clearGrid() {
@@ -39,6 +37,7 @@ function clearGrid() {
 function changeBackground(event) {
     if(mouseDown){
         if(!eraser){
+            colorToUse = document.getElementById("colorChoice").value;
             event.target.classList.add('hovered');
             let newOpacityValue = Number(event.target.style.opacity) + opacitySetting;
             event.target.style.opacity = newOpacityValue;

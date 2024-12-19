@@ -1,10 +1,12 @@
 * {
     box-sizing: border-box;
+    background-color: rgb(194, 194, 194);
 }
 .sketchbook {
-    border:solid;
+    border: solid;
     border-color: black;
     display: inline-block;
+    box-shadow: 10px 10px 10px rgb(155, 155, 155);
 }
 .sketch_box_row {
     display: flex;
@@ -38,42 +40,4 @@
     border-color: rgb(243, 243, 243);;
     color: rgb(187, 187, 187);
     font-weight:bold;
-}
-
-.button.color {
-    width: 100px;
-    height: 100px;
-}
-
-.button.black {
-    background-color: rgb(49, 49, 49);
-}
-
-.button.black:hover {
-    background-color: rgb(75, 75, 75);
-}
-
-
-.button.red {
-    background-color: red;
-}
-
-.button.red:hover {
-    background-color: rgb(253, 92, 92);
-}
-
-.button.blue {
-    background-color: rgb(0, 0, 201);
-}
-
-.button.blue:hover {
-    background-color: rgb(67, 67, 255);
-}
-
-.button.green {
-    background-color: green;
-}
-
-.button.green:hover {
-    background-color: rgb(26, 170, 26);
 }
